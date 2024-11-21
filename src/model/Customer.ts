@@ -9,18 +9,17 @@ export class Customer {
     private email!: string;
     private password!: string;
 
-    constructor(id: Uuid, name: string, document: Document, email: string, password: string){
-        this.id = id
+    constructor(name: string, document: Document, email: string, password: string){
+        this.id = Uuid.randomGenerator()
         this.name = name
         this.document = document
         this.email = email
         this.password = password
     }
 
-    static create(id: string, name: string, document: string, email: string, password: string): Customer{
-        const uuid = new Uuid(id)
+    static create(name: string, document: string, email: string, password: string): Customer{
         const documentInstance = DocumentFactory.create(document)
 
-        return new Customer(uuid, name, documentInstance, email, password)
+        return new Customer(name, documentInstance, email, password)
     }
 }
