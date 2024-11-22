@@ -1,7 +1,5 @@
 # simple-crud-officejr
 
-npm init -y
-
 npm install typescript ts-node
 
 npx tsc --init
