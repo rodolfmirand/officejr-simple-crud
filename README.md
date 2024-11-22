@@ -9,7 +9,3 @@ npm install express @types/express
 npm install uuid @types/uuid
 
 npm install ts-node-dev
-
-npm install knex @types/knex
-
-npm install mysql
