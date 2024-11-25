@@ -2,10 +2,12 @@ import { Request, Response, Router } from "express"
 import { CustomerRepositoryInMemory } from "./infra/repository/memory/CustomerRepositoryInMemory"
 import { CustomerCreate } from "./controller/CustomerCreate"
 import { CustomerList } from "./controller/CustomerList"
+import { CustomerRepositoryDatabase } from "./infra/repository/database/CustomerRepositoryDatabase"
 
 const router = Router()
 
-const repository = new CustomerRepositoryInMemory()
+// let repository = new CustomerRepositoryInMemory()
+let repository = new CustomerRepositoryDatabase()
 const customerCreate = new CustomerCreate(repository)
 const customerList = new CustomerList(repository)
 
