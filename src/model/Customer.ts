@@ -9,17 +9,42 @@ export class Customer {
     private email!: string;
     private password!: string;
 
-    constructor(name: string, document: Document, email: string, password: string){
-        this.id = Uuid.randomGenerator()
+    constructor(id: Uuid, name: string, document: Document, email: string, password: string) {
+        this.id = id
         this.name = name
         this.document = document
         this.email = email
         this.password = password
     }
 
-    static create(name: string, document: string, email: string, password: string): Customer{
+    static create(name: string, document: string, email: string, password: string): Customer {
         const documentInstance = DocumentFactory.create(document)
+        const id = Uuid.randomGenerator()
+        return new Customer(id, name, documentInstance, email, password)
+    }
 
-        return new Customer(name, documentInstance, email, password)
+    static createWithId(id: Uuid,  name: string, document: string, email: string, password: string): Customer {
+        const documentInstance = DocumentFactory.create(document)
+        return new Customer(id, name, documentInstance, email, password)
+    }
+
+    public getId(): Uuid {
+        return this.id
+    }
+
+    public getName(): string {
+        return this.name
+    }
+
+    public getDocument(): Document {
+        return this.document
+    }
+
+    public getEmail(): string {
+        return this.email
+    }
+
+    public getPassword(): string {
+        return this.password
     }
 }
