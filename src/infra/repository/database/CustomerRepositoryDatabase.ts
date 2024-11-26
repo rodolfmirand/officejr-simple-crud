@@ -26,8 +26,7 @@ export class CustomerRepositoryDatabase implements CustomerRepository {
 
         const customers = await this.connection('customer').select('*')
 
-        for(var c = 0; c < customers.length; c++){
-            const customer = customers[c]
+        for(let customer of customers){
             const id = customer['id']
             const name = customer['name']
             const document = customer['document']
@@ -35,7 +34,7 @@ export class CustomerRepositoryDatabase implements CustomerRepository {
             const password = customer['password']
 
             customerCollection.push(Customer.createWithId(id, name, document, email, password))
-        } 
+        }
 
         return customerCollection
     }
