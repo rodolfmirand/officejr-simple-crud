@@ -44,5 +44,7 @@ export class CustomerRepositoryDatabase implements CustomerRepository {
         return customer['password'] == password 
     }
 
-    
+    async delete(document: string): Promise<boolean> {
+        return await this.connection('customer').delete().where({document}) > 0
+    }
 }
