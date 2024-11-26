@@ -4,4 +4,5 @@ export interface CustomerRepository {
     save(customer: Customer): Promise<void>
     getAll(): Promise<Array<Customer>>
     login(email: string, password: string): Promise<boolean>
+    delete(document: string): Promise<boolean>
 }
