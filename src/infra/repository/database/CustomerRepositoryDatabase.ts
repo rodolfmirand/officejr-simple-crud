@@ -38,4 +38,11 @@ export class CustomerRepositoryDatabase implements CustomerRepository {
 
         return customerCollection
     }
+
+    async login(email: string, password: string): Promise<boolean> {
+        const customer = await this.connection('customer').where({email}).first()
+        return customer['password'] == password 
+    }
+
+    
 }
