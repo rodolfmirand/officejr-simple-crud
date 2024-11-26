@@ -1,7 +1,7 @@
 import knex, { Knex } from "knex";
 import { Customer } from "../../../model/Customer";
 import { CustomerRepository } from "../../../repository/CustomerRepository";
-import { config } from '../database/KnexConfig'
+import { config } from './config/KnexConfig'
 
 export class CustomerRepositoryDatabase implements CustomerRepository {
 
