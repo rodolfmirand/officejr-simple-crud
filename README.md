@@ -21,3 +21,5 @@ create customer: localhost:3000/customer
 list all customers: localhost:3000/customer-list
 
 login: localhost:3000/login
+
+login: localhost:3000/delete
